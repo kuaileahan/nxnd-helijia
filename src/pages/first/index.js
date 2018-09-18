@@ -1,5 +1,10 @@
-import React, { Component} from 'react'
-import { Carousel  } from 'antd-mobile';
+import React, { Component,Fragment} from 'react'
+import { Carousel ,Grid } from 'antd-mobile';
+
+const data = Array.from(new Array(20)).map((_val, i) => ({
+  icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+  text: `name${i}`,
+}));
 
 export default class index extends Component {
   constructor(){
@@ -10,6 +15,7 @@ export default class index extends Component {
   }
     render() {
         return (
+          <Fragment>
             <Carousel
             autoplay={false}
             infinite
@@ -26,7 +32,9 @@ export default class index extends Component {
               </a>
             ))}
           </Carousel>
-
+          <div className="sub-title">Carousel</div>
+          <Grid data={data}  columnNum={5} isCarousel onClick={_el => console.log(_el)} />
+        </Fragment>
         )
     }
 }
